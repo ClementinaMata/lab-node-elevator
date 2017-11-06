@@ -15,10 +15,15 @@ class Elevator {
 
   stop() {
     clearInterval(this.interval);
+
   }
 
   update() {
     this.log();
+    if (this.requests !== 0) {
+      this.floor = this.requests[this.requests.length - 1];
+      // console.log(this.floor);
+    }
   }
 
   _passengersEnter(person) {
