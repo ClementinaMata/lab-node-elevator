@@ -8,7 +8,7 @@ class Elevator {
   }
 
   start() {
-    this.interval = setInterval(this.update, 1000);
+    this.interval = setInterval(() => this.update(), 1000);
   }
 
   stop() {
@@ -24,24 +24,25 @@ class Elevator {
 
   floorUp() {
     if (this.floor < this.MAXFLOOR) {
-      this.floor++;
+      this.floor +=1;
     } else {
       console.log("You are in the highest floor");
     }
   }
 
   floorDown() {
-    if (this.floor >= 0) {
-      this.floor--;
-    } else {
+    if (this.floor - 1 < 0) {
       console.log("You are in floor 0");
+    } else {
+      this.floor -=1;
     }
   }
 
-  call() {}
+
+  call(person) {}
 
   log() {
-    console.log("direction: " + this.direction, "floor: " + this.floor);
+    console.log("direction: " + this.direction+",floor: " + this.floor);
   }
 }
 
